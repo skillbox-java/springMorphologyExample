@@ -1,6 +1,6 @@
 # Пример проекта Java Spring Framework
 
-Проект с подключенными библиотеками лемматизаторами. 
+Проект с подключенными библиотеками лемматизаторами.
 Содержит несколько контроллеров, сервисов и репозиторий
 с подключением к бд MySQL.
 
@@ -15,12 +15,13 @@
 jar файлов:
 
 ```xml
+
 <repositories>
-  <repository>
-    <id>github</id>
-    <name>GitHub Apache Maven Packages - Russian Morphology</name>
-    <url>https://maven.pkg.github.com/skillbox-java/russianmorphology</url>
-  </repository>
+    <repository>
+        <id>github</id>
+        <name>GitHub Apache Maven Packages - Russian Morphology</name>
+        <url>https://maven.pkg.github.com/skillbox-java/russianmorphology</url>
+    </repository>
 </repositories>
 ```
 
@@ -34,17 +35,18 @@ jar файлов:
 и добавьте внутри тега `settings` текст конфигурации:
 
 ```xml
+
 <servers>
     <server>
-      <id>github</id>
-      <configuration>
-        <httpHeaders>
-          <property>
-            <name>Authorization</name>
-            <value>Bearer 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</value>
-          </property>
-        </httpHeaders>
-      </configuration>
+        <id>github</id>
+        <configuration>
+            <httpHeaders>
+                <property>
+                    <name>Authorization</name>
+                    <value>Bearer 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</value>
+                </property>
+            </httpHeaders>
+        </configuration>
     </server>
 </servers>
 ```
@@ -52,25 +54,26 @@ jar файлов:
 ❗️Если файла нет, то создайте `settings.xml` и вставьте в него:
 
 ```xml
+
 <settings xmlns="http://maven.apache.org/SETTINGS/1.0.0"
- xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
- xsi:schemaLocation="http://maven.apache.org/SETTINGS/1.0.0
+          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+          xsi:schemaLocation="http://maven.apache.org/SETTINGS/1.0.0
  https://maven.apache.org/xsd/settings-1.0.0.xsd">
 
-<servers>
-    <server>
-      <id>github</id>
-      <configuration>
-        <httpHeaders>
-          <property>
-            <name>Authorization</name>
-            <value>Bearer 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</value>
-          </property>
-        </httpHeaders>
-      </configuration>
-    </server>
-</servers>
-    
+    <servers>
+        <server>
+            <id>github</id>
+            <configuration>
+                <httpHeaders>
+                    <property>
+                        <name>Authorization</name>
+                        <value>Bearer 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</value>
+                    </property>
+                </httpHeaders>
+            </configuration>
+        </server>
+    </servers>
+
 </settings>
 ```
 
@@ -118,12 +121,13 @@ spring:
 три слоя:
 
 * **Presentation** - Наши контроллеры. слой общается с пользователями, в нашем случае ожидает запросы по API. И отдает
-ответы.
+  ответы.
 * **Business** - замый важный слой - бизнес логика, содержится в классах Сервисах. Этот слой ничего не знает о
-Presentation
-слое
-* **Data Access** - слой отвечает за хранение данных, подключение к БД, реализацию запросов. Слой не знает о других слоях
-ничего. У нас это классы Репозитории.
+  Presentation
+  слое
+* **Data Access** - слой отвечает за хранение данных, подключение к БД, реализацию запросов. Слой не знает о других
+  слоях
+  ничего. У нас это классы Репозитории.
 
 ![img.png](docs/arch.png)
 
@@ -137,7 +141,7 @@ Presentation
 
 Интерфейсы нужны, чтобы слои приложения не зависели от реализаций классов. Каждый из классов LemmaController и
 MorphologyServiceImpl зависят от интерфейса MorphologyService. Это значит, что сервисы и контроллеры могут меняться
-независимо, заменяться и это не будет влиять на другие слои. 
+независимо, заменяться и это не будет влиять на другие слои.
 
 Также это относится и к передаваемым данным, у каждого слоя
 может быть свои структуры для хранения данных, например Репозитории отдают Entity классы, а сервисы уже упаковывают в
@@ -148,11 +152,87 @@ MorphologyServiceImpl зависят от интерфейса MorphologyService
 реализация будет сгенерирована при запуске проекта.
 
 Рекомендации для чтения про архитектуру:
+
 * [Многоуровневая архитектура в проекте на Java (Часть 1)](https://alexkosarev.name/2018/07/27/n-tier-java-part1/)
 * [Многоуровневая архитектура в проекте на Java (Часть 2)](https://alexkosarev.name/2018/07/27/n-tier-java-part2/)
 * [Чистая архитектура](https://habr.com/ru/post/269589/)
 
 ## Исследуйте исходный код проекта
 
-К классам и методам в проекте содержаться комментарии объясняющие особенности поведения, использование аннотаций и 
+К классам и методам в проекте содержаться комментарии объясняющие особенности поведения, использование аннотаций и
 синтаксис. Пройдитесь по всем классам и изучите проект.
+
+## Проверка API
+
+Для проверки API данного проекта вы можете использовать разные инструменты:
+
+* [cURL](https://curl.se/) - консольная утилита.
+* [Postman](https://www.postman.com/) - приложения для отправки запросов и тестирования API
+* [Insomnia](https://insomnia.rest/) - еще одно приложения для тестирования API
+
+Ниже приведены запросов в формате cURL, вы можете данные из запросов перенести в любое другое приложение.
+
+* **Получение информации о слове**
+
+```bash
+curl -X POST http://localhost:8080/api/lemma/info  -i -d '{"word":"брат"}' -H 'Content-Type: application/json'
+```
+
+Успешный ответ:
+
+```json
+[
+  "брат|A С мр,ед,им"
+]
+```
+
+* **Сохранение слова в БД**
+
+```bash
+curl -X POST http://localhost:8080/api/lemma/save -i -d '{"word":"сестра"}' -H 'Content-Type: application/json'
+```
+
+Успешный ответ:
+
+```json
+{
+  "word": "сестра",
+  "morphInfo": [
+    "сестра|G С жр,ед,им"
+  ]
+}
+```
+
+Слово не найдено с словаре:
+
+```json
+{
+  "message": "Word <cecnhf> not contains in dictionary!"
+}
+```
+
+* **Поиск слова в БД**
+
+```bash
+curl  -X POST http://localhost:8080/api/lemma/search -i -d '{"query":"бр", "limit":100}' -H 'Content-Type: application/json'
+```
+
+Успешный ответ:
+
+```json
+{
+  "count": 2,
+  "words": [
+    {
+      "word": "брат",
+      "morphInfo": "[брат|A С мр,ед,им]",
+      "count": 0
+    },
+    {
+      "word": "броненосец",
+      "morphInfo": "[броненосец|A С мр,ед,им]",
+      "count": 0
+    }
+  ]
+}
+```
