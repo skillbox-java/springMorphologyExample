@@ -70,6 +70,14 @@
         </dependency>
     </dependencies>
 
+    <repositories>
+        <repository>
+            <id>github</id>
+            <name>GitHub Apache Maven Packages - Russian Morphology</name>
+            <url>https://maven.pkg.github.com/skillbox-java/russianmorphology</url>
+        </repository>
+    </repositories>
+
     <build>
         <plugins>
             <plugin>

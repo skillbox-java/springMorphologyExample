@@ -32,6 +32,9 @@ jar файлов:
 * В Linux директория `/home/<Имя вашего пользователя>/.m2`
 * В macOs по адресу `/Users/<Имя вашего пользователя>/.m2`
 
+>**Внимание!** Актуальный токен, строка которую надо вставить в тег `<value>...</value>`
+[находится в документе по ссылке](https://docs.google.com/document/d/1REA7E14HWNvpp3a6XqEoPLcISaxkDe8iQXVv98Nzktw/edit?usp=sharing). 
+
 и добавьте внутри тега `settings` текст конфигурации:
 
 ```xml
@@ -43,13 +46,15 @@ jar файлов:
             <httpHeaders>
                 <property>
                     <name>Authorization</name>
-                    <value>Bearer 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</value>
+                    <value>Токен доступа</value>
                 </property>
             </httpHeaders>
         </configuration>
     </server>
 </servers>
 ```
+
+**Не забудьте поменять токен на актуальный!**
 
 ❗️Если файла нет, то создайте `settings.xml` и вставьте в него:
 
@@ -67,7 +72,7 @@ jar файлов:
                 <httpHeaders>
                     <property>
                         <name>Authorization</name>
-                        <value>Bearer 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</value>
+                        <value>Токен доступа</value>
                     </property>
                 </httpHeaders>
             </configuration>
@@ -77,7 +82,34 @@ jar файлов:
 </settings>
 ```
 
-После этого, в проекте обновите зависимости (Ctrl+Shift+O / ⌘⇧I)
+**Не забудьте поменять токен на актуальный!**
+
+После этого, в проекте обновите зависимости (Ctrl+Shift+O / ⌘⇧I) или
+принудительно обновите данные из pom.xml. 
+
+Для этого вызовите контекстное
+у файла `pom.xml` в дереве файла проектов **Project** и выберите пункт меню **Maven -> Reload Project**.
+
+
+⁉️ Если после этого у вас остается ошибка:
+
+```text
+Could not transfer artifact org.apache.lucene.morphology:morph:pom:1.5
+from/to github (https://maven.pkg.github.com/skillbox-java/russianmorphology):
+authentication failed for
+https://maven.pkg.github.com/skillbox-java/russianmorphology/org/apache/lucene/morphology/morph/1.5/morph-1.5.pom,
+status: 401 Unauthorized
+```
+
+Почистите кэш Maven. Самый надежный способ, удалить директорию:
+
+- Windows `C:\Users\<user_name>\.m2\repository`
+- macOs `/Users/<user_name>/.m2/repository`
+- Linux `/home/<user_name>/.m2/repository`
+
+где `<user_name>` - имя пользователя под которым вы работаете.
+
+После этого снова попробуйте обновить данный из `pom.xml`
 
 ### Настройки подключения к БД
 
