@@ -15,17 +15,15 @@
 jar файлов:
 
 ```xml
-
 <repositories>
-    <repository>
-        <id>github</id>
-        <name>GitHub Apache Maven Packages - Russian Morphology</name>
-        <url>https://maven.pkg.github.com/skillbox-java/russianmorphology</url>
-    </repository>
+  <repository>
+    <id>skillbox-gitlab</id>
+    <url>https://gitlab.skillbox.ru/api/v4/projects/263574/packages/maven</url>
+  </repository>
 </repositories>
 ```
 
-Так как GitHub требуется авторизации по токену для получения данных из
+Так как для доступа требуется авторизации по токену для получения данных из
 публичного репозитория, для указания токена, найдите файл `settings.xml`.
 
 * В Windows он располагается в директории `C:/Users/<Имя вашего пользователя>/.m2`
@@ -38,19 +36,18 @@ jar файлов:
 и добавьте внутри тега `settings` текст конфигурации:
 
 ```xml
-
 <servers>
-    <server>
-        <id>github</id>
-        <configuration>
-            <httpHeaders>
-                <property>
-                    <name>Authorization</name>
-                    <value>Токен доступа</value>
-                </property>
-            </httpHeaders>
-        </configuration>
-    </server>
+  <server>
+    <id>skillbox-gitlab</id>
+    <configuration>
+      <httpHeaders>
+        <property>
+          <name>Private-Token</name>
+          <value>Insert Token</value>
+        </property>
+      </httpHeaders>
+    </configuration>
+  </server>
 </servers>
 ```
 
@@ -59,25 +56,24 @@ jar файлов:
 ❗️Если файла нет, то создайте `settings.xml` и вставьте в него:
 
 ```xml
-
 <settings xmlns="http://maven.apache.org/SETTINGS/1.0.0"
           xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
           xsi:schemaLocation="http://maven.apache.org/SETTINGS/1.0.0
  https://maven.apache.org/xsd/settings-1.0.0.xsd">
 
-    <servers>
-        <server>
-            <id>github</id>
-            <configuration>
-                <httpHeaders>
-                    <property>
-                        <name>Authorization</name>
-                        <value>Токен доступа</value>
-                    </property>
-                </httpHeaders>
-            </configuration>
-        </server>
-    </servers>
+  <servers>
+    <server>
+      <id>skillbox-gitlab</id>
+      <configuration>
+        <httpHeaders>
+          <property>
+            <name>Private-Token</name>
+            <value>Insert Token</value>
+          </property>
+        </httpHeaders>
+      </configuration>
+    </server>
+  </servers>
 
 </settings>
 ```
@@ -95,9 +91,10 @@ jar файлов:
 
 ```text
 Could not transfer artifact org.apache.lucene.morphology:morph:pom:1.5
-from/to github (https://maven.pkg.github.com/skillbox-java/russianmorphology):
+from/to gitlab-skillbox (https://gitlab.skillbox.ru/api/v4/projects/263574/packages/maven):
 authentication failed for
-https://maven.pkg.github.com/skillbox-java/russianmorphology/org/apache/lucene/morphology/morph/1.5/morph-1.5.pom,
+https://gitlab.skillbox.ru/api/v4/projects/263574/packages/maven/russianmorphology/org/apache/
+    lucene/morphology/morph/1.5/morph-1.5.pom,
 status: 401 Unauthorized
 ```
 
