@@ -74,11 +74,22 @@
 
     <repositories>
         <repository>
-            <id>github</id>
-            <name>GitHub Apache Maven Packages - Russian Morphology</name>
-            <url>https://maven.pkg.github.com/skillbox-java/russianmorphology</url>
+            <id>skillbox-gitlab</id>
+            <url>https://gitlab.skillbox.ru/api/v4/projects/263574/packages/maven</url>
         </repository>
     </repositories>
+
+    <distributionManagement>
+        <repository>
+            <id>skillbox-gitlab</id>
+            <url>https://gitlab.skillbox.ru/api/v4/projects/263574/packages/maven</url>
+        </repository>
+
+        <snapshotRepository>
+            <id>skillbox-gitlab</id>
+            <url>https://gitlab.skillbox.ru/api/v4/projects/263574/packages/maven</url>
+        </snapshotRepository>
+    </distributionManagement>
 
     <build>
         <plugins>
