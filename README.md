@@ -31,7 +31,7 @@ jar файлов:
 * В macOs по адресу `/Users/<Имя вашего пользователя>/.m2`
 
 >**Внимание!** Актуальный токен, строка которую надо вставить в тег `<value>...</value>`
-[находится в документе по ссылке](https://docs.google.com/document/d/1REA7E14HWNvpp3a6XqEoPLcISaxkDe8iQXVv98Nzktw/edit?usp=sharing). 
+[находится в документе по ссылке](https://docs.google.com/document/d/1rb0ysFBLQltgLTvmh-ebaZfJSI7VwlFlEYT9V5_aPjc/edit?usp=sharing). 
 
 и добавьте внутри тега `settings` текст конфигурации:
 
