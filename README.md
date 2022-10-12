@@ -43,7 +43,7 @@ jar файлов:
       <httpHeaders>
         <property>
           <name>Private-Token</name>
-          <value>Insert Token</value>
+          <value>token</value>
         </property>
       </httpHeaders>
     </configuration>
@@ -68,7 +68,7 @@ jar файлов:
         <httpHeaders>
           <property>
             <name>Private-Token</name>
-            <value>Insert Token</value>
+            <value>token</value>
           </property>
         </httpHeaders>
       </configuration>
@@ -77,6 +77,9 @@ jar файлов:
 
 </settings>
 ```
+
+ℹ️ [Пример готового settings.xml лежит](settings.xml) в корне этого проекта.
+
 
 **Не забудьте поменять токен на актуальный!**
 
